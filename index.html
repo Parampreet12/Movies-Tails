@@ -1,0 +1,70 @@
+<html>
+
+<head>
+  <link rel="icon" href="images/favicon.png" type="image/png" size="16x16">
+  <title>Movies</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/index_style.css">
+
+</head>
+<body>
+  <div class="w-100 ml-auto text-right mt-3 pr-3">  
+    <label>Sort by: </label>
+    <select id="sortDropBox" name="sort">
+        <option class="dropdown-item" href="#">random</option>
+        <option class="dropdown-item" href="#">latest</option>
+        <option class="dropdown-item" href="#">oldest</option>
+        <option class="dropdown-item" href="#">higher rate</option>
+        <option class="dropdown-item" href="#">lower rate</option>
+      </select>
+    </div>
+  
+  <div class="form-group mb-4 mt-5 mx-auto text-center">
+    <input id="SearchInput" class="bg-transparent"type="text" placeholder="Search by name...">
+    </div>
+  <div class="container ml-auto text-center row justify-content-around mt-5"id="newsShow">
+  </div>
+  <div id="contect" class="mt-5 pt-3 container contact text-center" style="padding-left: 10rem;">
+    <h1 class="ml-3 my-4">ContactUs...</h1>
+    <div class="contactInputs mt-4">
+      <div class="row justify-content-center mx-auto text-center mt-3">
+        <div class="col-md-6 mb-2">
+          <input id="name" class="bg-transparent"type="text" placeholder="Enter Your Name">
+          <small id="ErrorName">Should be 3-8 alphabet</small>
+        </div>
+        <div class="col-md-6 mb-2">
+          <input id="email" class="bg-transparent"type="email" placeholder="Enter Your Email">
+          <small id="ErrorEmail">Should start with alphabet,Allowed 3-8 characters before @</small>
+        </div>
+      </div>
+      <div class="row justify-content-around">
+        <div class="col-md-6 mb-2">
+          <input id="phone"class="bg-transparent"type="number" placeholder="Enter Your Phone">
+          <small id="ErrorPhone">Start with 01 then 1 or 2 or 5 then 8 numbers</small>
+        </div>
+        <div class="col-md-6 mb-2">
+          <input id="age"class="bg-transparent"type="number" placeholder="Enter Your Age">
+          <small id="ErrorAge">Age from 10 to 69 years</small>
+        </div>
+      </div>
+      <div class="row justify-content-around">
+        <div class="col-md-6 mb-2">
+          <input id="pass"class="bg-transparent"type="password" placeholder="Enter Password">
+          <small id="ErrorPassword">Password 8-15 characters</small>
+        </div>
+        <div class="col-md-6">
+          <input id="repass" class="bg-transparent"type="password" placeholder="Enter RePassword">
+        </div>
+      </div>
+        <button class="btn text-danger border border-danger my-4" style="background-color: black;">Submit</button>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script><script src="js/first.js"></script>
+  
+ 
+</body>
+
+</html>
