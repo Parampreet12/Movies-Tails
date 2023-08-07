@@ -1,7 +1,6 @@
 body
 {
     background-color: #18ad9c;
-    width: 78rem;
 }
 input
 {   
@@ -45,11 +44,11 @@ input::-webkit-inner-spin-button {
 }
 #SearchInput
 {
-    font-size: 1.4rem;
+    font-size: 2rem;
 }
 #SearchInput::placeholder
 {
-    font-size: 1.4rem;
+    font-size: 2rem;
 }
 .imgAndContentContainer:hover .content
 {
