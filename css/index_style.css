@@ -14,15 +14,15 @@ input::placeholder
     color: white;
     font-size: 1rem;
 }
-/*To hide spinner next to input number type*/
+
 input[type=number] {
-    appearance:textfield; /* Firefox */
+    appearance:textfield;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
-/**/
+
 .imgAndContentContainer
 {
     position: relative;
@@ -118,7 +118,7 @@ label
 }
 @media screen and (max-width:947px)
 {
-
+  
 input
 {
     width: 250px;
@@ -187,5 +187,6 @@ li
     {
         font-size: 0.8rem;
     }
+    
 
 }

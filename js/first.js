@@ -1,41 +1,36 @@
-/*initially texting part is inside*/
+
 var textingWidth=-($(".texting").width());
 $(".SlidingPart").css("left",textingWidth);
-/**/
-/*Getting inputs values*/
+
 var productName=document.getElementById("name");
 var productEmail=document.getElementById("email");
 var productPhone=document.getElementById("phone");
 var productAge=document.getElementById("age");
 var productPassword=document.getElementById("pass");
 var productRePassword=document.getElementById("repass");
-/* */
-/*Validation*/
+
 var nameValid=false;
 var emailValid=false;
 var phoneValid=false;
 var ageValid=false;
 var passwordValid=false;
 var repasswordValid=false;
-/*Type of sorting */
+
 var sortTypee="random";
 /*AJAX*/
-var newsDisplay=document.getElementById("newsShow"); //news container
-var receivedArticles=[]; //array of news
-/*Create new XMLHttpRequest*/
+var newsDisplay=document.getElementById("newsShow"); 
+var receivedArticles=[]; 
 var httpRequest=new XMLHttpRequest(); 
 httpRequest.open("GET","https://api.themoviedb.org/3/movie/now_playing?api_key=eba8b9a7199efdcb0ca1f96879b83c44&fbclid=IwAR1B06TsSXIV7Ur7o1ycbu5yx4HzsxbQs6Hh0-LKKuObQHaTV0Tz4aAsZ8U",true); //open connection
-httpRequest.send(); //send request
+httpRequest.send(); 
 httpRequest.onreadystatechange = function() {
     if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-        //Data received and URL is correct
+        
          receivedArticles=(JSON.parse(httpRequest.response)).results; 
-       displayNews(sortTypee); //show news
+       displayNews(sortTypee); 
     }
     else{/*do nothing */}
-  };//check state of httpRequest
-/**/
-/*Display News*/
+  }
 function displayNews(sortingType)
 {
     var htmlCode="";
@@ -78,7 +73,7 @@ function displayNews(sortingType)
     else if(sortTypee=="random")
     {
         receivedArticles=(JSON.parse(httpRequest.response)).results; 
-        //do nothing
+        
     }
     for(var i=0;i<receivedArticles.length;i++)
     {
@@ -111,8 +106,7 @@ function displayNews(sortingType)
     }
     newsDisplay.innerHTML=htmlCode;
 }
-/**/
-/*Search by title*/
+
 $("#SearchInput").keyup(
 
     function()
@@ -154,21 +148,21 @@ $("#SearchInput").keyup(
     }
 }
 )
-/*Validate name*/
+
 productName.addEventListener("keyup",function()
 {
     var regEx = /^[a-zA-Z]{3,8}$/;
     var nameP=productName.value;
     if(nameP=="")
     {
-        /*Still empty*/
+        
         nameValid=false;
         $("#ErrorName").css("display","none");
         $("#name").css("backgroundColor","transparent");
     }
     else if((regEx.test(nameP)==true))
     {
-        /*No error*/
+       
         nameValid=true;
         $("#name").css("backgroundColor","transparent");
         $("#name").css("color","white");
@@ -176,7 +170,7 @@ productName.addEventListener("keyup",function()
     }
     else
     {
-        /*error*/
+        
         nameValid=false;
         $("#name").removeClass("bg-transparent");
         $("#name").css("backgroundColor","white");
@@ -184,22 +178,21 @@ productName.addEventListener("keyup",function()
         $("#ErrorName").css("display","block");
     }
 });
-/**/
-/*Validate email*/
+
 productEmail.addEventListener("keyup",function()
 {
     var regEx = /^[a-zA-Z].{3,8}@(gmail|yahoo).com$/;
     var emailP=productEmail.value;
     if(emailP=="")
     {
-        /*Still empty*/
+        
         emailValid=false;
         $("#ErrorEmail").css("display","none");
         $("#email").css("backgroundColor","transparent");
     }
     else if((regEx.test(emailP)==true))
     {   
-        /*No error*/
+        
         emailValid=true;
         $("#email").css("backgroundColor","transparent");
         $("#email").css("color","white");
@@ -208,7 +201,7 @@ productEmail.addEventListener("keyup",function()
     }
     else
     {
-        /*error*/
+        
         emailValid=false;
         $("#email").removeClass("bg-transparent");
         $("#email").css("color","black");
@@ -216,20 +209,19 @@ productEmail.addEventListener("keyup",function()
         $("#ErrorEmail").css("display","block");
     }
 });
-/**/
-/*Validate phone*/
+
 productPhone.addEventListener("keyup",function()
 {
     var regEx = /^01(1|0|2|5)[0-9]{8}$/;
     var phoneP=productPhone.value;
     if(phoneP=="")
-    {   /*Still empty*/
+    {   
         phoneValid=false;
         $("#ErrorPhone").css("display","none");
         $("#phone").css("backgroundColor","transparent");
     }
     else if((regEx.test(phoneP)==true))
-    {   /*No error*/
+    {   
         phoneValid=true;
         $("#phone").css("backgroundColor","transparent");
         $("#phone").css("color","white");
@@ -237,7 +229,7 @@ productPhone.addEventListener("keyup",function()
         $("#ErrorPhone").css("display","none");
     }
     else
-    {   /*error*/
+    {   
         phoneValid=false;
         $("#phone").removeClass("bg-transparent");
         $("#phone").css("color","black");
@@ -245,22 +237,21 @@ productPhone.addEventListener("keyup",function()
         $("#ErrorPhone").css("display","block");
     }
 });
-/**/
-/*Validate age*/
+
 productAge.addEventListener("keyup",function()
 {
     var regEx = /^[1-6][0-9]$/;
     var ageP=productAge.value;
     if(ageP=="")
     {
-        /*Still Empty*/
+        
         ageValid=false;
         $("#ErrorAge").css("display","none");
         $("#age").css("backgroundColor","transparent");
     }
     else if((regEx.test(ageP)==true))
     {
-        /*No error*/
+        
         ageValid=true;
         $("#age").css("backgroundColor","transparent");
         $("#age").css("color","white");
@@ -269,7 +260,7 @@ productAge.addEventListener("keyup",function()
     }
     else
     {
-        /*Error*/
+        
         phoneValid=false;
         $("#age").removeClass("bg-transparent");
         $("#age").css("color","black");
@@ -277,22 +268,21 @@ productAge.addEventListener("keyup",function()
         $("#ErrorAge").css("display","block");
     }
 });
-/**/
-/*Validate password*/
+
 productPassword.addEventListener("keyup",function()
 {
     var regEx = /^.{8,15}$/;
     var passwordP=productPassword.value;
     if(passwordP=="")
     {
-        /*Still empty*/
+        
         passwordValid=false;
         $("#ErrorPassword").css("display","none");
         $("#pass").css("backgroundColor","transparent");
     }
     else if((regEx.test(passwordP)==true))
     {
-        /*No error*/
+        
         passwordValid=true;
         $("#pass").css("backgroundColor","transparent");
         $("#pass").css("color","white");
@@ -308,8 +298,7 @@ productPassword.addEventListener("keyup",function()
         $("#ErrorPassword").css("display","block");
     }
 });
-/**/
-/*Validate repassword*/
+
 productRePassword.addEventListener("keyup",function()
 {
     var regEx = /^.{8,15}$/;
@@ -323,7 +312,7 @@ productRePassword.addEventListener("keyup",function()
         repasswordValid=true;
         $("#repass").css("backgroundColor","");
         $("#repass").addClass("bg-transparent");
-       /*do Nothing*/
+       
     }
     else
     {
@@ -332,8 +321,7 @@ productRePassword.addEventListener("keyup",function()
         $("#repass").css("backgroundColor","#f8d7da");
     }
 });
-/**/
-/*Choose sorting type */
+
 $("#sortDropBox").change(
 
     function()
@@ -342,8 +330,7 @@ $("#sortDropBox").change(
         displayNews(sortTypee)
     }
 )
-/**/
-/*movingSmoothlyLis*/
+
 let liIndex=0;
 let checkk=false;
 function moveLi()
@@ -375,21 +362,20 @@ function moveAllLis()
             }
         },100);
 }
-/**/
-/*Moving leftPart*/
+
 $("#openexitIcon").click(
     function()
     {   
-        //go inside
+       
     if(($(".texting").offset().left)==0)
     {
         $(".SlidingPart").css("left",textingWidth);
-        //again Lis in bottom
+        
         $("li").css("top","900px");
         $("li").css("transition","top 0s 0s");
         $("#openexitIcon").attr("class","fas fa-align-justify");
     }
-    //go outside
+    
     else
     {
         liIndex=0;
@@ -400,4 +386,4 @@ $("#openexitIcon").click(
     }
     }
     );
-/**/
+
